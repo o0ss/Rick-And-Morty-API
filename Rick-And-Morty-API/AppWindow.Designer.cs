@@ -138,6 +138,7 @@
             this.buttonLastPers.TabIndex = 7;
             this.buttonLastPers.Text = ">>";
             this.buttonLastPers.UseVisualStyleBackColor = true;
+            this.buttonLastPers.Click += new System.EventHandler(this.buttonLastPers_Click);
             // 
             // buttonNextPers
             // 
@@ -147,6 +148,7 @@
             this.buttonNextPers.TabIndex = 6;
             this.buttonNextPers.Text = ">";
             this.buttonNextPers.UseVisualStyleBackColor = true;
+            this.buttonNextPers.Click += new System.EventHandler(this.buttonNextPers_Click);
             // 
             // buttonPrevPers
             // 
@@ -156,6 +158,7 @@
             this.buttonPrevPers.TabIndex = 5;
             this.buttonPrevPers.Text = "<";
             this.buttonPrevPers.UseVisualStyleBackColor = true;
+            this.buttonPrevPers.Click += new System.EventHandler(this.buttonPrevPers_Click);
             // 
             // buttonRandPers
             // 
@@ -175,9 +178,11 @@
             this.buttonFirstPers.TabIndex = 3;
             this.buttonFirstPers.Text = "<<";
             this.buttonFirstPers.UseVisualStyleBackColor = true;
+            this.buttonFirstPers.Click += new System.EventHandler(this.buttonFirstPers_Click);
             // 
             // pictureBoxPers
             // 
+            this.pictureBoxPers.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBoxPers.Location = new System.Drawing.Point(15, 60);
             this.pictureBoxPers.Name = "pictureBoxPers";
             this.pictureBoxPers.Size = new System.Drawing.Size(150, 150);
@@ -199,7 +204,7 @@
             this.tabPageLugares.Location = new System.Drawing.Point(4, 24);
             this.tabPageLugares.Name = "tabPageLugares";
             this.tabPageLugares.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageLugares.Size = new System.Drawing.Size(743, 560);
+            this.tabPageLugares.Size = new System.Drawing.Size(381, 246);
             this.tabPageLugares.TabIndex = 1;
             this.tabPageLugares.Text = "Lugares";
             this.tabPageLugares.UseVisualStyleBackColor = true;
@@ -208,7 +213,7 @@
             // 
             this.tabPageEpisodios.Location = new System.Drawing.Point(4, 24);
             this.tabPageEpisodios.Name = "tabPageEpisodios";
-            this.tabPageEpisodios.Size = new System.Drawing.Size(743, 560);
+            this.tabPageEpisodios.Size = new System.Drawing.Size(381, 246);
             this.tabPageEpisodios.TabIndex = 2;
             this.tabPageEpisodios.Text = "Episodios";
             this.tabPageEpisodios.UseVisualStyleBackColor = true;

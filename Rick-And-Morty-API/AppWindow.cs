@@ -29,6 +29,7 @@ namespace Rick_And_Morty_API
 					{
 						Personaje pnuevo = await
 							api.ObtenPersonaje(nuevo);
+						if(!dicc_personajes.ContainsKey(nuevo))
 						dicc_personajes.Add(nuevo, pnuevo);
 					}
 
@@ -75,6 +76,28 @@ namespace Rick_And_Morty_API
 					await updatePersonaje(nuevo);
 				}
 			}
+		}
+
+		private async void buttonFirstPers_Click(object sender, EventArgs e)
+		{
+			await updatePersonaje(Personaje.MIN_ID);
+		}
+
+		private async void buttonPrevPers_Click(object sender, EventArgs e)
+		{
+			if (id > Personaje.MIN_ID)
+				await updatePersonaje(id - 1);
+		}
+
+		private async void buttonNextPers_Click(object sender, EventArgs e)
+		{
+			if (id < Personaje.MAX_ID)
+				await updatePersonaje(id + 1);
+		}
+
+		private async void buttonLastPers_Click(object sender, EventArgs e)
+		{
+			await updatePersonaje(Personaje.MAX_ID);
 		}
 
 		private async void buttonRandPers_Click(object sender, EventArgs e)
