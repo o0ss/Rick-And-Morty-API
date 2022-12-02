@@ -2,6 +2,7 @@
 
 public class Lugar
 {
+	public static int MIN_ID = 1, MAX_ID = 126;
 	public int id { get; set; }
 	public string name { get; set; }
 	public string type { get; set; }

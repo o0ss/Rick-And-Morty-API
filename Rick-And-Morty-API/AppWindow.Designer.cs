@@ -52,9 +52,23 @@
             this.labelPersName = new System.Windows.Forms.Label();
             this.tabPageLugares = new System.Windows.Forms.TabPage();
             this.tabPageEpisodios = new System.Windows.Forms.TabPage();
+            this.labelLocNumResidents = new System.Windows.Forms.Label();
+            this.label_LocNumResidents = new System.Windows.Forms.Label();
+            this.labelLocType = new System.Windows.Forms.Label();
+            this.labelLocDim = new System.Windows.Forms.Label();
+            this.label_LocType = new System.Windows.Forms.Label();
+            this.label_LocDim = new System.Windows.Forms.Label();
+            this.textBoxLocID = new System.Windows.Forms.TextBox();
+            this.buttonLocLast = new System.Windows.Forms.Button();
+            this.buttonLocNext = new System.Windows.Forms.Button();
+            this.buttonLocPrev = new System.Windows.Forms.Button();
+            this.buttonLocRandom = new System.Windows.Forms.Button();
+            this.buttonLocFirst = new System.Windows.Forms.Button();
+            this.labelLocNombre = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPagePersonajes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPers)).BeginInit();
+            this.tabPageLugares.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -318,6 +332,19 @@
             // 
             // tabPageLugares
             // 
+            this.tabPageLugares.Controls.Add(this.labelLocNumResidents);
+            this.tabPageLugares.Controls.Add(this.label_LocNumResidents);
+            this.tabPageLugares.Controls.Add(this.labelLocType);
+            this.tabPageLugares.Controls.Add(this.labelLocDim);
+            this.tabPageLugares.Controls.Add(this.label_LocType);
+            this.tabPageLugares.Controls.Add(this.label_LocDim);
+            this.tabPageLugares.Controls.Add(this.textBoxLocID);
+            this.tabPageLugares.Controls.Add(this.buttonLocLast);
+            this.tabPageLugares.Controls.Add(this.buttonLocNext);
+            this.tabPageLugares.Controls.Add(this.buttonLocPrev);
+            this.tabPageLugares.Controls.Add(this.buttonLocRandom);
+            this.tabPageLugares.Controls.Add(this.buttonLocFirst);
+            this.tabPageLugares.Controls.Add(this.labelLocNombre);
             this.tabPageLugares.Location = new System.Drawing.Point(4, 24);
             this.tabPageLugares.Name = "tabPageLugares";
             this.tabPageLugares.Padding = new System.Windows.Forms.Padding(3);
@@ -335,6 +362,136 @@
             this.tabPageEpisodios.Text = "Episodios";
             this.tabPageEpisodios.UseVisualStyleBackColor = true;
             // 
+            // labelLocNumResidents
+            // 
+            this.labelLocNumResidents.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.labelLocNumResidents.AutoSize = true;
+            this.labelLocNumResidents.Location = new System.Drawing.Point(82, 136);
+            this.labelLocNumResidents.Name = "labelLocNumResidents";
+            this.labelLocNumResidents.Size = new System.Drawing.Size(21, 15);
+            this.labelLocNumResidents.TabIndex = 39;
+            this.labelLocNumResidents.Text = "##";
+            // 
+            // label_LocNumResidents
+            // 
+            this.label_LocNumResidents.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label_LocNumResidents.AutoSize = true;
+            this.label_LocNumResidents.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.label_LocNumResidents.Location = new System.Drawing.Point(19, 136);
+            this.label_LocNumResidents.Name = "label_LocNumResidents";
+            this.label_LocNumResidents.Size = new System.Drawing.Size(57, 15);
+            this.label_LocNumResidents.TabIndex = 37;
+            this.label_LocNumResidents.Text = "Residents";
+            // 
+            // labelLocType
+            // 
+            this.labelLocType.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.labelLocType.AutoSize = true;
+            this.labelLocType.Location = new System.Drawing.Point(82, 96);
+            this.labelLocType.Name = "labelLocType";
+            this.labelLocType.Size = new System.Drawing.Size(31, 15);
+            this.labelLocType.TabIndex = 35;
+            this.labelLocType.Text = "Type";
+            // 
+            // labelLocDim
+            // 
+            this.labelLocDim.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.labelLocDim.AutoSize = true;
+            this.labelLocDim.Location = new System.Drawing.Point(82, 116);
+            this.labelLocDim.Name = "labelLocDim";
+            this.labelLocDim.Size = new System.Drawing.Size(64, 15);
+            this.labelLocDim.TabIndex = 33;
+            this.labelLocDim.Text = "Dimension";
+            // 
+            // label_LocType
+            // 
+            this.label_LocType.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label_LocType.AutoSize = true;
+            this.label_LocType.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.label_LocType.Location = new System.Drawing.Point(45, 96);
+            this.label_LocType.Name = "label_LocType";
+            this.label_LocType.Size = new System.Drawing.Size(31, 15);
+            this.label_LocType.TabIndex = 31;
+            this.label_LocType.Text = "Type";
+            // 
+            // label_LocDim
+            // 
+            this.label_LocDim.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label_LocDim.AutoSize = true;
+            this.label_LocDim.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.label_LocDim.Location = new System.Drawing.Point(12, 116);
+            this.label_LocDim.Name = "label_LocDim";
+            this.label_LocDim.Size = new System.Drawing.Size(64, 15);
+            this.label_LocDim.TabIndex = 29;
+            this.label_LocDim.Text = "Dimension";
+            // 
+            // textBoxLocID
+            // 
+            this.textBoxLocID.Location = new System.Drawing.Point(104, 16);
+            this.textBoxLocID.MaxLength = 3;
+            this.textBoxLocID.Name = "textBoxLocID";
+            this.textBoxLocID.PlaceholderText = "ID";
+            this.textBoxLocID.Size = new System.Drawing.Size(80, 23);
+            this.textBoxLocID.TabIndex = 22;
+            this.textBoxLocID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // buttonLocLast
+            // 
+            this.buttonLocLast.Location = new System.Drawing.Point(234, 16);
+            this.buttonLocLast.Name = "buttonLocLast";
+            this.buttonLocLast.Size = new System.Drawing.Size(38, 23);
+            this.buttonLocLast.TabIndex = 28;
+            this.buttonLocLast.Text = ">>";
+            this.buttonLocLast.UseVisualStyleBackColor = true;
+            // 
+            // buttonLocNext
+            // 
+            this.buttonLocNext.Location = new System.Drawing.Point(190, 16);
+            this.buttonLocNext.Name = "buttonLocNext";
+            this.buttonLocNext.Size = new System.Drawing.Size(38, 23);
+            this.buttonLocNext.TabIndex = 27;
+            this.buttonLocNext.Text = ">";
+            this.buttonLocNext.UseVisualStyleBackColor = true;
+            // 
+            // buttonLocPrev
+            // 
+            this.buttonLocPrev.Location = new System.Drawing.Point(60, 16);
+            this.buttonLocPrev.Name = "buttonLocPrev";
+            this.buttonLocPrev.Size = new System.Drawing.Size(38, 23);
+            this.buttonLocPrev.TabIndex = 26;
+            this.buttonLocPrev.Text = "<";
+            this.buttonLocPrev.UseVisualStyleBackColor = true;
+            // 
+            // buttonLocRandom
+            // 
+            this.buttonLocRandom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonLocRandom.Location = new System.Drawing.Point(352, 15);
+            this.buttonLocRandom.Name = "buttonLocRandom";
+            this.buttonLocRandom.Size = new System.Drawing.Size(75, 23);
+            this.buttonLocRandom.TabIndex = 24;
+            this.buttonLocRandom.Text = "Random";
+            this.buttonLocRandom.UseVisualStyleBackColor = true;
+            // 
+            // buttonLocFirst
+            // 
+            this.buttonLocFirst.Location = new System.Drawing.Point(16, 16);
+            this.buttonLocFirst.Name = "buttonLocFirst";
+            this.buttonLocFirst.Size = new System.Drawing.Size(38, 23);
+            this.buttonLocFirst.TabIndex = 25;
+            this.buttonLocFirst.Text = "<<";
+            this.buttonLocFirst.UseVisualStyleBackColor = true;
+            // 
+            // labelLocNombre
+            // 
+            this.labelLocNombre.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.labelLocNombre.AutoSize = true;
+            this.labelLocNombre.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelLocNombre.Location = new System.Drawing.Point(16, 61);
+            this.labelLocNombre.Name = "labelLocNombre";
+            this.labelLocNombre.Size = new System.Drawing.Size(81, 25);
+            this.labelLocNombre.TabIndex = 21;
+            this.labelLocNombre.Text = "Nombre";
+            // 
             // AppWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -347,6 +504,8 @@
             this.tabPagePersonajes.ResumeLayout(false);
             this.tabPagePersonajes.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPers)).EndInit();
+            this.tabPageLugares.ResumeLayout(false);
+            this.tabPageLugares.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -377,5 +536,18 @@
 		private Label labelPersOrigin;
 		private Label label_PersLoc;
 		private Label label_PersOrigin;
+		private Label labelLocNumResidents;
+		private Label label_LocNumResidents;
+		private Label labelLocType;
+		private Label labelLocDim;
+		private Label label_LocType;
+		private Label label_LocDim;
+		private TextBox textBoxLocID;
+		private Button buttonLocLast;
+		private Button buttonLocNext;
+		private Button buttonLocPrev;
+		private Button buttonLocRandom;
+		private Button buttonLocFirst;
+		private Label labelLocNombre;
 	}
 }

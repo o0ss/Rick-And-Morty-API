@@ -62,4 +62,28 @@ public class RickMortyAPI
 			throw;
 		}
 	}
+
+	public async Task<Lugar> ObtenLugar(int id)
+	{
+		try
+		{
+			if (Lugar.MIN_ID <= id && id <= Lugar.MAX_ID)
+			{
+				Lugar loc;
+				HttpResponseMessage response = await client.GetAsync(string.Concat("location/", id.ToString()));
+				if (response.IsSuccessStatusCode)
+				{
+					loc = await response.Content.ReadFromJsonAsync<Lugar>();
+					return loc;
+				}
+			}
+
+			return null;
+		}
+		catch (Exception e)
+		{
+			await global::System.Console.Out.WriteLineAsync(e.ToString());
+			throw;
+		}
+	}
 }
