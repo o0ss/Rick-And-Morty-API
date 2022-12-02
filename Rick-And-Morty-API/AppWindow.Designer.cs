@@ -30,6 +30,10 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPagePersonajes = new System.Windows.Forms.TabPage();
+            this.labelPersGender = new System.Windows.Forms.Label();
+            this.labelPersType = new System.Windows.Forms.Label();
+            this.labelPersSpecies = new System.Windows.Forms.Label();
+            this.labelPersStatus = new System.Windows.Forms.Label();
             this.textBoxIDPers = new System.Windows.Forms.TextBox();
             this.buttonLastPers = new System.Windows.Forms.Button();
             this.buttonNextPers = new System.Windows.Forms.Button();
@@ -40,10 +44,6 @@
             this.labelPersName = new System.Windows.Forms.Label();
             this.tabPageLugares = new System.Windows.Forms.TabPage();
             this.tabPageEpisodios = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPagePersonajes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPers)).BeginInit();
@@ -57,15 +57,15 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(751, 588);
+            this.tabControl1.Size = new System.Drawing.Size(389, 274);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPagePersonajes
             // 
-            this.tabPagePersonajes.Controls.Add(this.label4);
-            this.tabPagePersonajes.Controls.Add(this.label3);
-            this.tabPagePersonajes.Controls.Add(this.label2);
-            this.tabPagePersonajes.Controls.Add(this.label1);
+            this.tabPagePersonajes.Controls.Add(this.labelPersGender);
+            this.tabPagePersonajes.Controls.Add(this.labelPersType);
+            this.tabPagePersonajes.Controls.Add(this.labelPersSpecies);
+            this.tabPagePersonajes.Controls.Add(this.labelPersStatus);
             this.tabPagePersonajes.Controls.Add(this.textBoxIDPers);
             this.tabPagePersonajes.Controls.Add(this.buttonLastPers);
             this.tabPagePersonajes.Controls.Add(this.buttonNextPers);
@@ -77,14 +77,50 @@
             this.tabPagePersonajes.Location = new System.Drawing.Point(4, 24);
             this.tabPagePersonajes.Name = "tabPagePersonajes";
             this.tabPagePersonajes.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPagePersonajes.Size = new System.Drawing.Size(743, 560);
+            this.tabPagePersonajes.Size = new System.Drawing.Size(381, 246);
             this.tabPagePersonajes.TabIndex = 0;
             this.tabPagePersonajes.Text = "Personajes";
             this.tabPagePersonajes.UseVisualStyleBackColor = true;
             // 
+            // labelPersGender
+            // 
+            this.labelPersGender.AutoSize = true;
+            this.labelPersGender.Location = new System.Drawing.Point(171, 170);
+            this.labelPersGender.Name = "labelPersGender";
+            this.labelPersGender.Size = new System.Drawing.Size(45, 15);
+            this.labelPersGender.TabIndex = 12;
+            this.labelPersGender.Text = "Gender";
+            // 
+            // labelPersType
+            // 
+            this.labelPersType.AutoSize = true;
+            this.labelPersType.Location = new System.Drawing.Point(171, 145);
+            this.labelPersType.Name = "labelPersType";
+            this.labelPersType.Size = new System.Drawing.Size(31, 15);
+            this.labelPersType.TabIndex = 11;
+            this.labelPersType.Text = "Type";
+            // 
+            // labelPersSpecies
+            // 
+            this.labelPersSpecies.AutoSize = true;
+            this.labelPersSpecies.Location = new System.Drawing.Point(171, 120);
+            this.labelPersSpecies.Name = "labelPersSpecies";
+            this.labelPersSpecies.Size = new System.Drawing.Size(46, 15);
+            this.labelPersSpecies.TabIndex = 10;
+            this.labelPersSpecies.Text = "Species";
+            // 
+            // labelPersStatus
+            // 
+            this.labelPersStatus.AutoSize = true;
+            this.labelPersStatus.Location = new System.Drawing.Point(171, 95);
+            this.labelPersStatus.Name = "labelPersStatus";
+            this.labelPersStatus.Size = new System.Drawing.Size(39, 15);
+            this.labelPersStatus.TabIndex = 9;
+            this.labelPersStatus.Text = "Status";
+            // 
             // textBoxIDPers
             // 
-            this.textBoxIDPers.Location = new System.Drawing.Point(127, 15);
+            this.textBoxIDPers.Location = new System.Drawing.Point(103, 15);
             this.textBoxIDPers.MaxLength = 3;
             this.textBoxIDPers.Name = "textBoxIDPers";
             this.textBoxIDPers.PlaceholderText = "ID";
@@ -96,7 +132,7 @@
             // 
             // buttonLastPers
             // 
-            this.buttonLastPers.Location = new System.Drawing.Point(257, 15);
+            this.buttonLastPers.Location = new System.Drawing.Point(233, 15);
             this.buttonLastPers.Name = "buttonLastPers";
             this.buttonLastPers.Size = new System.Drawing.Size(38, 23);
             this.buttonLastPers.TabIndex = 7;
@@ -105,7 +141,7 @@
             // 
             // buttonNextPers
             // 
-            this.buttonNextPers.Location = new System.Drawing.Point(213, 15);
+            this.buttonNextPers.Location = new System.Drawing.Point(189, 15);
             this.buttonNextPers.Name = "buttonNextPers";
             this.buttonNextPers.Size = new System.Drawing.Size(38, 23);
             this.buttonNextPers.TabIndex = 6;
@@ -114,7 +150,7 @@
             // 
             // buttonPrevPers
             // 
-            this.buttonPrevPers.Location = new System.Drawing.Point(83, 15);
+            this.buttonPrevPers.Location = new System.Drawing.Point(59, 15);
             this.buttonPrevPers.Name = "buttonPrevPers";
             this.buttonPrevPers.Size = new System.Drawing.Size(38, 23);
             this.buttonPrevPers.TabIndex = 5;
@@ -123,7 +159,7 @@
             // 
             // buttonRandPers
             // 
-            this.buttonRandPers.Location = new System.Drawing.Point(353, 15);
+            this.buttonRandPers.Location = new System.Drawing.Point(291, 15);
             this.buttonRandPers.Name = "buttonRandPers";
             this.buttonRandPers.Size = new System.Drawing.Size(75, 23);
             this.buttonRandPers.TabIndex = 4;
@@ -133,7 +169,7 @@
             // 
             // buttonFirstPers
             // 
-            this.buttonFirstPers.Location = new System.Drawing.Point(39, 15);
+            this.buttonFirstPers.Location = new System.Drawing.Point(15, 15);
             this.buttonFirstPers.Name = "buttonFirstPers";
             this.buttonFirstPers.Size = new System.Drawing.Size(38, 23);
             this.buttonFirstPers.TabIndex = 3;
@@ -177,47 +213,11 @@
             this.tabPageEpisodios.Text = "Episodios";
             this.tabPageEpisodios.UseVisualStyleBackColor = true;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(171, 95);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(39, 15);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Status";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(171, 120);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 15);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Species";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(171, 145);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(31, 15);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "Type";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(171, 170);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 15);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "Gender";
-            // 
             // AppWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(775, 612);
+            this.ClientSize = new System.Drawing.Size(413, 298);
             this.Controls.Add(this.tabControl1);
             this.Name = "AppWindow";
             this.Text = "Rick and Morty API - Oscar Sixtos";
@@ -243,9 +243,9 @@
         private Button buttonPrevPers;
         private Button buttonRandPers;
         private TextBox textBoxIDPers;
-        private Label label4;
-        private Label label3;
-        private Label label2;
-        private Label label1;
+        private Label labelPersGender;
+        private Label labelPersType;
+        private Label labelPersSpecies;
+        private Label labelPersStatus;
     }
 }

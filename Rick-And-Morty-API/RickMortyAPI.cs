@@ -1,5 +1,7 @@
-﻿using System.Net.Http;
+﻿using System.Net;
+using System.Net.Http;
 using System.Net.Http.Json;
+using System.Windows.Forms;
 
 public class RickMortyAPI
 {
@@ -34,6 +36,19 @@ public class RickMortyAPI
 				if (response.IsSuccessStatusCode)
 				{
 					personaje = await response.Content.ReadFromJsonAsync<Personaje>();
+					if(personaje.image != null)
+					{
+						using (WebClient img_c = new WebClient())
+						{
+							byte[] imageData = img_c.DownloadData(personaje.image);
+							using (MemoryStream stream = new MemoryStream(imageData))
+							{
+								personaje.img_data = 
+									Image.FromStream(stream).GetThumbnailImage(150, 150, null, IntPtr.Zero);
+							}
+						}
+
+					}
 					return personaje;
 				}
 			}

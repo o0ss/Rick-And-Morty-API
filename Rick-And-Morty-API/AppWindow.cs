@@ -31,7 +31,20 @@ namespace Rick_And_Morty_API
 							api.ObtenPersonaje(nuevo);
 						dicc_personajes.Add(nuevo, pnuevo);
 					}
-					labelPersName.Text = dicc_personajes[nuevo].name;
+
+					Personaje pers_up = dicc_personajes[nuevo];
+
+					labelPersName.Text = pers_up.name;
+					labelPersGender.Text = pers_up.gender;
+					labelPersSpecies.Text = pers_up.species;
+					labelPersStatus.Text = pers_up.status;
+					labelPersType.Text = pers_up.type;
+					pictureBoxPers.Image = pers_up.img_data;
+
+					if (textBoxIDPers.Text != id.ToString())
+					{
+						textBoxIDPers.Text = id.ToString();
+					}
 					return true;
 				}
 				return false;
