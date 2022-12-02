@@ -41,6 +41,8 @@ namespace Rick_And_Morty_API
 					labelPersSpecies.Text = nuevo_pers.species;
 					labelPersStatus.Text = nuevo_pers.status;
 					labelPersType.Text = nuevo_pers.type;
+					labelPersOrigin.Text = nuevo_pers.origin.name;
+					labelPersLoc.Text = nuevo_pers.location.name;
 					pictureBoxPers.Image = nuevo_pers.img_data;
 
 					if (textBoxIDPers.Text != id.ToString())
@@ -97,6 +99,14 @@ namespace Rick_And_Morty_API
 				{
 					await updatePersonaje(nuevo);
 				}
+			}
+		}
+
+		private void tabPagePersonajes_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+		{
+			if (e.KeyCode == Keys.Left)
+			{
+				buttonPrevPers_Click(sender, e);
 			}
 		}
 

@@ -43,8 +43,9 @@ public class RickMortyAPI
 							byte[] imageData = img_c.DownloadData(personaje.image);
 							using (MemoryStream stream = new MemoryStream(imageData))
 							{
-								personaje.img_data = 
-									Image.FromStream(stream).GetThumbnailImage(150, 150, null, IntPtr.Zero);
+								/*personaje.img_data = 
+									Image.FromStream(stream).GetThumbnailImage(150, 150, null, IntPtr.Zero);*/
+								personaje.img_data = Image.FromStream(stream);
 							}
 						}
 
