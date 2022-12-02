@@ -5,15 +5,19 @@ namespace Rick_And_Morty_API
 {
 	public partial class AppWindow : Form
 	{
-		private int last_id = Personaje.MIN_ID, id = 0;
+		private int last_id_pers = Personaje.MIN_ID, id_pers = 0,
+					last_id_loc = Lugar.MIN_ID, id_loc = 0;
+					/*last_id_ep = Episodio.MIN_ID, id_ep = 0;*/
 		private RickMortyAPI api;
 		private Random random;
 		Dictionary<int, Personaje> dicc_personajes;
+		Dictionary<int, Lugar> dicc_lugares;
 		public AppWindow()
 		{
 			InitializeComponent();
 			random = new Random();
 			dicc_personajes = new Dictionary<int, Personaje>();
+			dicc_lugares = new Dictionary<int, Lugar>();
 			api = new RickMortyAPI();
 		}
 
@@ -21,11 +25,11 @@ namespace Rick_And_Morty_API
 		{
 			try
 			{
-				if (nuevo != id && 
+				if (nuevo != id_pers && 
 					Personaje.MIN_ID <= nuevo && nuevo <= Personaje.MAX_ID)
 				{
-					last_id = id;
-					id = nuevo;
+					last_id_pers = id_pers;
+					id_pers = nuevo;
 					if (!dicc_personajes.ContainsKey(nuevo))
 					{
 						Personaje pnuevo = await
@@ -45,9 +49,9 @@ namespace Rick_And_Morty_API
 					labelPersLoc.Text = nuevo_pers.location.name;
 					pictureBoxPers.Image = nuevo_pers.img_data;
 
-					if (textBoxIDPers.Text != id.ToString())
+					if (textBoxIDPers.Text != id_pers.ToString())
 					{
-						textBoxIDPers.Text = id.ToString();
+						textBoxIDPers.Text = id_pers.ToString();
 					}
 					return true;
 				}
@@ -61,6 +65,46 @@ namespace Rick_And_Morty_API
 			
 		}
 
+		public async Task<bool> updateLugar(int nuevo)
+		{
+			try
+			{
+				if (nuevo != id_loc &&
+					Lugar.MIN_ID <= nuevo && nuevo <= Lugar.MAX_ID)
+				{
+					last_id_loc = id_loc;
+					id_loc = nuevo;
+					if (!dicc_lugares.ContainsKey(nuevo))
+					{
+						Lugar loc_nuevo = await
+							api.ObtenLugar(nuevo);
+						if (!dicc_lugares.ContainsKey(nuevo))
+							dicc_lugares.Add(nuevo, loc_nuevo);
+					}
+
+					Lugar nuevo_lugar = dicc_lugares[nuevo];
+
+					labelLocNombre.Text = nuevo_lugar.name;
+					labelLocDim.Text = nuevo_lugar.dimension;
+					labelLocType.Text = nuevo_lugar.type;
+					labelLocNumResidents.Text = nuevo_lugar.residents.Length.ToString();
+
+					if (textBoxLocID.Text != id_loc.ToString())
+					{
+						textBoxLocID.Text = id_loc.ToString();
+					}
+					return true;
+				}
+				return false;
+			}
+			catch (Exception e)
+			{
+				global::System.Console.WriteLine(e.ToString());
+				throw;
+			}
+
+		}
+
 		private async void buttonFirstPers_Click(object sender, EventArgs e)
 		{
 			await updatePersonaje(Personaje.MIN_ID);
@@ -68,19 +112,38 @@ namespace Rick_And_Morty_API
 
 		private async void buttonPrevPers_Click(object sender, EventArgs e)
 		{
-			if (id > Personaje.MIN_ID)
-				await updatePersonaje(id - 1);
+			if (id_pers > Personaje.MIN_ID)
+				await updatePersonaje(id_pers - 1);
 		}
 
 		private async void buttonNextPers_Click(object sender, EventArgs e)
 		{
-			if (id < Personaje.MAX_ID)
-				await updatePersonaje(id + 1);
+			if (id_pers < Personaje.MAX_ID)
+				await updatePersonaje(id_pers + 1);
 		}
 
 		private async void buttonLastPers_Click(object sender, EventArgs e)
 		{
 			await updatePersonaje(Personaje.MAX_ID);
+		}
+
+		private async void textBoxLocID_TextChanged(object sender, EventArgs e)
+		{
+			if (!int.TryParse(textBoxLocID.Text, out int nuevo) || nuevo < Lugar.MIN_ID)
+			{
+				textBoxLocID.Text = "";
+			}
+			else
+			{
+				if (nuevo > Lugar.MAX_ID)
+				{
+					textBoxLocID.Text = id_loc.ToString();
+				}
+				else
+				{
+					await updateLugar(nuevo);
+				}
+			}
 		}
 
 		private async void textBoxIDPers_TextChanged(object sender, EventArgs e)
@@ -93,7 +156,7 @@ namespace Rick_And_Morty_API
 			{
 				if (nuevo > Personaje.MAX_ID)
 				{
-					textBoxIDPers.Text = id.ToString();
+					textBoxIDPers.Text = id_pers.ToString();
 				}
 				else
 				{

@@ -51,7 +51,6 @@
             this.pictureBoxPers = new System.Windows.Forms.PictureBox();
             this.labelPersName = new System.Windows.Forms.Label();
             this.tabPageLugares = new System.Windows.Forms.TabPage();
-            this.tabPageEpisodios = new System.Windows.Forms.TabPage();
             this.labelLocNumResidents = new System.Windows.Forms.Label();
             this.label_LocNumResidents = new System.Windows.Forms.Label();
             this.labelLocType = new System.Windows.Forms.Label();
@@ -65,6 +64,7 @@
             this.buttonLocRandom = new System.Windows.Forms.Button();
             this.buttonLocFirst = new System.Windows.Forms.Button();
             this.labelLocNombre = new System.Windows.Forms.Label();
+            this.tabPageEpisodios = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPagePersonajes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPers)).BeginInit();
@@ -353,15 +353,6 @@
             this.tabPageLugares.Text = "Lugares";
             this.tabPageLugares.UseVisualStyleBackColor = true;
             // 
-            // tabPageEpisodios
-            // 
-            this.tabPageEpisodios.Location = new System.Drawing.Point(4, 24);
-            this.tabPageEpisodios.Name = "tabPageEpisodios";
-            this.tabPageEpisodios.Size = new System.Drawing.Size(442, 226);
-            this.tabPageEpisodios.TabIndex = 2;
-            this.tabPageEpisodios.Text = "Episodios";
-            this.tabPageEpisodios.UseVisualStyleBackColor = true;
-            // 
             // labelLocNumResidents
             // 
             this.labelLocNumResidents.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -434,6 +425,7 @@
             this.textBoxLocID.Size = new System.Drawing.Size(80, 23);
             this.textBoxLocID.TabIndex = 22;
             this.textBoxLocID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxLocID.TextChanged += new System.EventHandler(this.textBoxLocID_TextChanged);
             // 
             // buttonLocLast
             // 
@@ -491,6 +483,15 @@
             this.labelLocNombre.Size = new System.Drawing.Size(81, 25);
             this.labelLocNombre.TabIndex = 21;
             this.labelLocNombre.Text = "Nombre";
+            // 
+            // tabPageEpisodios
+            // 
+            this.tabPageEpisodios.Location = new System.Drawing.Point(4, 24);
+            this.tabPageEpisodios.Name = "tabPageEpisodios";
+            this.tabPageEpisodios.Size = new System.Drawing.Size(442, 226);
+            this.tabPageEpisodios.TabIndex = 2;
+            this.tabPageEpisodios.Text = "Episodios";
+            this.tabPageEpisodios.UseVisualStyleBackColor = true;
             // 
             // AppWindow
             // 
