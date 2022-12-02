@@ -8,7 +8,6 @@
     public string gender { get; set; }
     public string image { get; set; }  
     public string created { get; set; }
-
     public const int MAX_ID = 826;
     public const int MIN_ID = 1;
 
@@ -27,6 +26,4 @@
 
         return str;
     }
-
 }
-
