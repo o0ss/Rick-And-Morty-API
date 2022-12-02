@@ -128,7 +128,6 @@
             this.textBoxIDPers.TabIndex = 8;
             this.textBoxIDPers.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBoxIDPers.TextChanged += new System.EventHandler(this.textBoxIDPers_TextChanged);
-            this.textBoxIDPers.Leave += new System.EventHandler(this.textBoxIDPers_TextChanged);
             // 
             // buttonLastPers
             // 

@@ -5,7 +5,7 @@ namespace Rick_And_Morty_API
 {
 	public partial class AppWindow : Form
 	{
-		private int last_id = Personaje.MIN_ID, id = Personaje.MIN_ID;
+		private int last_id = Personaje.MIN_ID, id = 0;
 		private RickMortyAPI api;
 		private Random random;
 		Dictionary<int, Personaje> dicc_personajes;
@@ -21,7 +21,8 @@ namespace Rick_And_Morty_API
 		{
 			try
 			{
-				if (Personaje.MIN_ID <= nuevo && nuevo <= Personaje.MAX_ID)
+				if (nuevo != id && 
+					Personaje.MIN_ID <= nuevo && nuevo <= Personaje.MAX_ID)
 				{
 					last_id = id;
 					id = nuevo;
@@ -33,14 +34,14 @@ namespace Rick_And_Morty_API
 						dicc_personajes.Add(nuevo, pnuevo);
 					}
 
-					Personaje pers_up = dicc_personajes[nuevo];
+					Personaje nuevo_pers = dicc_personajes[nuevo];
 
-					labelPersName.Text = pers_up.name;
-					labelPersGender.Text = pers_up.gender;
-					labelPersSpecies.Text = pers_up.species;
-					labelPersStatus.Text = pers_up.status;
-					labelPersType.Text = pers_up.type;
-					pictureBoxPers.Image = pers_up.img_data;
+					labelPersName.Text = nuevo_pers.name;
+					labelPersGender.Text = nuevo_pers.gender;
+					labelPersSpecies.Text = nuevo_pers.species;
+					labelPersStatus.Text = nuevo_pers.status;
+					labelPersType.Text = nuevo_pers.type;
+					pictureBoxPers.Image = nuevo_pers.img_data;
 
 					if (textBoxIDPers.Text != id.ToString())
 					{
@@ -56,26 +57,6 @@ namespace Rick_And_Morty_API
 				throw;
 			}
 			
-		}
-
-		private async void textBoxIDPers_TextChanged(object sender, EventArgs e)
-		{
-			int nuevo;
-			if (!int.TryParse(textBoxIDPers.Text, out nuevo) || nuevo < Personaje.MIN_ID)
-			{
-				textBoxIDPers.Text = "";
-			}
-			else
-			{
-				if(nuevo > Personaje.MAX_ID)
-				{
-					textBoxIDPers.Text = id.ToString();
-				}
-				else
-				{
-					await updatePersonaje(nuevo);
-				}
-			}
 		}
 
 		private async void buttonFirstPers_Click(object sender, EventArgs e)
@@ -98,6 +79,25 @@ namespace Rick_And_Morty_API
 		private async void buttonLastPers_Click(object sender, EventArgs e)
 		{
 			await updatePersonaje(Personaje.MAX_ID);
+		}
+
+		private async void textBoxIDPers_TextChanged(object sender, EventArgs e)
+		{
+			if (!int.TryParse(textBoxIDPers.Text, out int nuevo) || nuevo < Personaje.MIN_ID)
+			{
+				textBoxIDPers.Text = "";
+			}
+			else
+			{
+				if (nuevo > Personaje.MAX_ID)
+				{
+					textBoxIDPers.Text = id.ToString();
+				}
+				else
+				{
+					await updatePersonaje(nuevo);
+				}
+			}
 		}
 
 		private async void buttonRandPers_Click(object sender, EventArgs e)
