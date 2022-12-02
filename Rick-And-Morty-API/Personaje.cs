@@ -6,8 +6,12 @@
     public string species { get; set; }
     public string type { get; set; }
     public string gender { get; set; }
-    public string image { get; set; }  
+    public string origin_name { get; set; }
+    public string location_name { get; set; }
+    public string image { get; set; }
+    public string[] episode {get; set;}
     public string created { get; set; }
+
     public const int MAX_ID = 826;
     public const int MIN_ID = 1;
 

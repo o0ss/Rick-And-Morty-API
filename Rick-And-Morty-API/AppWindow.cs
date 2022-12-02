@@ -8,12 +8,12 @@ namespace Rick_And_Morty_API
 		private int last_id = Personaje.MIN_ID, id = Personaje.MIN_ID;
 		private RickMortyAPI api;
 		private Random random;
-		Dictionary<int, Personaje> dic_personajes;
+		Dictionary<int, Personaje> dicc_personajes;
 		public AppWindow()
 		{
 			InitializeComponent();
 			random = new Random();
-			dic_personajes = new Dictionary<int, Personaje>();
+			dicc_personajes = new Dictionary<int, Personaje>();
 			api = new RickMortyAPI();
 		}
 
@@ -25,13 +25,13 @@ namespace Rick_And_Morty_API
 				{
 					last_id = id;
 					id = nuevo;
-					if (!dic_personajes.ContainsKey(nuevo))
+					if (!dicc_personajes.ContainsKey(nuevo))
 					{
 						Personaje pnuevo = await
 							api.ObtenPersonaje(nuevo);
-						dic_personajes.Add(nuevo, pnuevo);
+						dicc_personajes.Add(nuevo, pnuevo);
 					}
-					labelPersName.Text = dic_personajes[nuevo].name;
+					labelPersName.Text = dicc_personajes[nuevo].name;
 					return true;
 				}
 				return false;
