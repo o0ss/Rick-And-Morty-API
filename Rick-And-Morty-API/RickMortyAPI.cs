@@ -3,7 +3,7 @@ using System.Net.Http.Json;
 
 public class RickMortyAPI
 {
-	private HttpClient client;
+	public HttpClient client;
 	public RickMortyAPI()
 	{
 		try
