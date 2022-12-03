@@ -86,4 +86,28 @@ public class RickMortyAPI
 			throw;
 		}
 	}
+
+	public async Task<Episodio> ObtenEpisodio(int id)
+	{
+		try
+		{
+			if (Episodio.MIN_ID <= id && id <= Episodio.MAX_ID)
+			{
+				Episodio ep;
+				HttpResponseMessage response = await client.GetAsync(string.Concat("episode/", id.ToString()));
+				if (response.IsSuccessStatusCode)
+				{
+					ep = await response.Content.ReadFromJsonAsync<Episodio>();
+					return ep;
+				}
+			}
+
+			return null;
+		}
+		catch (Exception e)
+		{
+			await global::System.Console.Out.WriteLineAsync(e.ToString());
+			throw;
+		}
+	}
 }

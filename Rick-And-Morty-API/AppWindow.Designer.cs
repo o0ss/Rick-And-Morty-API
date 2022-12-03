@@ -65,10 +65,24 @@
             this.buttonLocFirst = new System.Windows.Forms.Button();
             this.labelLocNombre = new System.Windows.Forms.Label();
             this.tabPageEpisodios = new System.Windows.Forms.TabPage();
+            this.labelEpCode = new System.Windows.Forms.Label();
+            this.labelEpChars = new System.Windows.Forms.Label();
+            this.labelEpAirDate = new System.Windows.Forms.Label();
+            this.label_EpCode = new System.Windows.Forms.Label();
+            this.label_EpChars = new System.Windows.Forms.Label();
+            this.label_EpAirDate = new System.Windows.Forms.Label();
+            this.textBoxEpID = new System.Windows.Forms.TextBox();
+            this.buttonEpLast = new System.Windows.Forms.Button();
+            this.buttonEpNext = new System.Windows.Forms.Button();
+            this.buttonEpPrev = new System.Windows.Forms.Button();
+            this.buttonEpRandom = new System.Windows.Forms.Button();
+            this.buttonEpFirst = new System.Windows.Forms.Button();
+            this.labelEpNombre = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPagePersonajes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPers)).BeginInit();
             this.tabPageLugares.SuspendLayout();
+            this.tabPageEpisodios.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -357,7 +371,7 @@
             // 
             this.labelLocNumResidents.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.labelLocNumResidents.AutoSize = true;
-            this.labelLocNumResidents.Location = new System.Drawing.Point(82, 136);
+            this.labelLocNumResidents.Location = new System.Drawing.Point(130, 152);
             this.labelLocNumResidents.Name = "labelLocNumResidents";
             this.labelLocNumResidents.Size = new System.Drawing.Size(21, 15);
             this.labelLocNumResidents.TabIndex = 39;
@@ -368,7 +382,7 @@
             this.label_LocNumResidents.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label_LocNumResidents.AutoSize = true;
             this.label_LocNumResidents.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label_LocNumResidents.Location = new System.Drawing.Point(19, 136);
+            this.label_LocNumResidents.Location = new System.Drawing.Point(67, 152);
             this.label_LocNumResidents.Name = "label_LocNumResidents";
             this.label_LocNumResidents.Size = new System.Drawing.Size(57, 15);
             this.label_LocNumResidents.TabIndex = 37;
@@ -378,7 +392,7 @@
             // 
             this.labelLocType.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.labelLocType.AutoSize = true;
-            this.labelLocType.Location = new System.Drawing.Point(82, 96);
+            this.labelLocType.Location = new System.Drawing.Point(130, 112);
             this.labelLocType.Name = "labelLocType";
             this.labelLocType.Size = new System.Drawing.Size(31, 15);
             this.labelLocType.TabIndex = 35;
@@ -388,7 +402,7 @@
             // 
             this.labelLocDim.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.labelLocDim.AutoSize = true;
-            this.labelLocDim.Location = new System.Drawing.Point(82, 116);
+            this.labelLocDim.Location = new System.Drawing.Point(130, 132);
             this.labelLocDim.Name = "labelLocDim";
             this.labelLocDim.Size = new System.Drawing.Size(64, 15);
             this.labelLocDim.TabIndex = 33;
@@ -399,7 +413,7 @@
             this.label_LocType.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label_LocType.AutoSize = true;
             this.label_LocType.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label_LocType.Location = new System.Drawing.Point(45, 96);
+            this.label_LocType.Location = new System.Drawing.Point(93, 112);
             this.label_LocType.Name = "label_LocType";
             this.label_LocType.Size = new System.Drawing.Size(31, 15);
             this.label_LocType.TabIndex = 31;
@@ -410,7 +424,7 @@
             this.label_LocDim.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label_LocDim.AutoSize = true;
             this.label_LocDim.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label_LocDim.Location = new System.Drawing.Point(12, 116);
+            this.label_LocDim.Location = new System.Drawing.Point(60, 132);
             this.label_LocDim.Name = "label_LocDim";
             this.label_LocDim.Size = new System.Drawing.Size(64, 15);
             this.label_LocDim.TabIndex = 29;
@@ -435,6 +449,7 @@
             this.buttonLocLast.TabIndex = 28;
             this.buttonLocLast.Text = ">>";
             this.buttonLocLast.UseVisualStyleBackColor = true;
+            this.buttonLocLast.Click += new System.EventHandler(this.buttonLocLast_Click);
             // 
             // buttonLocNext
             // 
@@ -444,6 +459,7 @@
             this.buttonLocNext.TabIndex = 27;
             this.buttonLocNext.Text = ">";
             this.buttonLocNext.UseVisualStyleBackColor = true;
+            this.buttonLocNext.Click += new System.EventHandler(this.buttonLocNext_Click);
             // 
             // buttonLocPrev
             // 
@@ -453,6 +469,7 @@
             this.buttonLocPrev.TabIndex = 26;
             this.buttonLocPrev.Text = "<";
             this.buttonLocPrev.UseVisualStyleBackColor = true;
+            this.buttonLocPrev.Click += new System.EventHandler(this.buttonLocPrev_Click);
             // 
             // buttonLocRandom
             // 
@@ -463,6 +480,7 @@
             this.buttonLocRandom.TabIndex = 24;
             this.buttonLocRandom.Text = "Random";
             this.buttonLocRandom.UseVisualStyleBackColor = true;
+            this.buttonLocRandom.Click += new System.EventHandler(this.buttonLocRandom_Click);
             // 
             // buttonLocFirst
             // 
@@ -472,13 +490,14 @@
             this.buttonLocFirst.TabIndex = 25;
             this.buttonLocFirst.Text = "<<";
             this.buttonLocFirst.UseVisualStyleBackColor = true;
+            this.buttonLocFirst.Click += new System.EventHandler(this.buttonLocFirst_Click);
             // 
             // labelLocNombre
             // 
             this.labelLocNombre.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.labelLocNombre.AutoSize = true;
             this.labelLocNombre.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelLocNombre.Location = new System.Drawing.Point(16, 61);
+            this.labelLocNombre.Location = new System.Drawing.Point(60, 66);
             this.labelLocNombre.Name = "labelLocNombre";
             this.labelLocNombre.Size = new System.Drawing.Size(81, 25);
             this.labelLocNombre.TabIndex = 21;
@@ -486,12 +505,161 @@
             // 
             // tabPageEpisodios
             // 
+            this.tabPageEpisodios.Controls.Add(this.labelEpCode);
+            this.tabPageEpisodios.Controls.Add(this.labelEpChars);
+            this.tabPageEpisodios.Controls.Add(this.labelEpAirDate);
+            this.tabPageEpisodios.Controls.Add(this.label_EpCode);
+            this.tabPageEpisodios.Controls.Add(this.label_EpChars);
+            this.tabPageEpisodios.Controls.Add(this.label_EpAirDate);
+            this.tabPageEpisodios.Controls.Add(this.textBoxEpID);
+            this.tabPageEpisodios.Controls.Add(this.buttonEpLast);
+            this.tabPageEpisodios.Controls.Add(this.buttonEpNext);
+            this.tabPageEpisodios.Controls.Add(this.buttonEpPrev);
+            this.tabPageEpisodios.Controls.Add(this.buttonEpRandom);
+            this.tabPageEpisodios.Controls.Add(this.buttonEpFirst);
+            this.tabPageEpisodios.Controls.Add(this.labelEpNombre);
             this.tabPageEpisodios.Location = new System.Drawing.Point(4, 24);
             this.tabPageEpisodios.Name = "tabPageEpisodios";
             this.tabPageEpisodios.Size = new System.Drawing.Size(442, 226);
             this.tabPageEpisodios.TabIndex = 2;
             this.tabPageEpisodios.Text = "Episodios";
             this.tabPageEpisodios.UseVisualStyleBackColor = true;
+            // 
+            // labelEpCode
+            // 
+            this.labelEpCode.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.labelEpCode.AutoSize = true;
+            this.labelEpCode.Location = new System.Drawing.Point(129, 135);
+            this.labelEpCode.Name = "labelEpCode";
+            this.labelEpCode.Size = new System.Drawing.Size(35, 15);
+            this.labelEpCode.TabIndex = 36;
+            this.labelEpCode.Text = "Code";
+            // 
+            // labelEpChars
+            // 
+            this.labelEpChars.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.labelEpChars.AutoSize = true;
+            this.labelEpChars.Location = new System.Drawing.Point(129, 155);
+            this.labelEpChars.Name = "labelEpChars";
+            this.labelEpChars.Size = new System.Drawing.Size(21, 15);
+            this.labelEpChars.TabIndex = 35;
+            this.labelEpChars.Text = "##";
+            // 
+            // labelEpAirDate
+            // 
+            this.labelEpAirDate.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.labelEpAirDate.AutoSize = true;
+            this.labelEpAirDate.Location = new System.Drawing.Point(129, 115);
+            this.labelEpAirDate.Name = "labelEpAirDate";
+            this.labelEpAirDate.Size = new System.Drawing.Size(49, 15);
+            this.labelEpAirDate.TabIndex = 34;
+            this.labelEpAirDate.Text = "Air Date";
+            // 
+            // label_EpCode
+            // 
+            this.label_EpCode.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label_EpCode.AutoSize = true;
+            this.label_EpCode.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.label_EpCode.Location = new System.Drawing.Point(88, 135);
+            this.label_EpCode.Name = "label_EpCode";
+            this.label_EpCode.Size = new System.Drawing.Size(35, 15);
+            this.label_EpCode.TabIndex = 32;
+            this.label_EpCode.Text = "Code";
+            // 
+            // label_EpChars
+            // 
+            this.label_EpChars.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label_EpChars.AutoSize = true;
+            this.label_EpChars.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.label_EpChars.Location = new System.Drawing.Point(60, 155);
+            this.label_EpChars.Name = "label_EpChars";
+            this.label_EpChars.Size = new System.Drawing.Size(63, 15);
+            this.label_EpChars.TabIndex = 31;
+            this.label_EpChars.Text = "Characters";
+            // 
+            // label_EpAirDate
+            // 
+            this.label_EpAirDate.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label_EpAirDate.AutoSize = true;
+            this.label_EpAirDate.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.label_EpAirDate.Location = new System.Drawing.Point(77, 115);
+            this.label_EpAirDate.Name = "label_EpAirDate";
+            this.label_EpAirDate.Size = new System.Drawing.Size(49, 15);
+            this.label_EpAirDate.TabIndex = 30;
+            this.label_EpAirDate.Text = "Air Date";
+            // 
+            // textBoxEpID
+            // 
+            this.textBoxEpID.Location = new System.Drawing.Point(104, 16);
+            this.textBoxEpID.MaxLength = 3;
+            this.textBoxEpID.Name = "textBoxEpID";
+            this.textBoxEpID.PlaceholderText = "ID";
+            this.textBoxEpID.Size = new System.Drawing.Size(80, 23);
+            this.textBoxEpID.TabIndex = 22;
+            this.textBoxEpID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxEpID.TextChanged += new System.EventHandler(this.textBoxEpID_TextChanged);
+            // 
+            // buttonEpLast
+            // 
+            this.buttonEpLast.Location = new System.Drawing.Point(234, 16);
+            this.buttonEpLast.Name = "buttonEpLast";
+            this.buttonEpLast.Size = new System.Drawing.Size(38, 23);
+            this.buttonEpLast.TabIndex = 28;
+            this.buttonEpLast.Text = ">>";
+            this.buttonEpLast.UseVisualStyleBackColor = true;
+            this.buttonEpLast.Click += new System.EventHandler(this.buttonEpLast_Click);
+            // 
+            // buttonEpNext
+            // 
+            this.buttonEpNext.Location = new System.Drawing.Point(190, 16);
+            this.buttonEpNext.Name = "buttonEpNext";
+            this.buttonEpNext.Size = new System.Drawing.Size(38, 23);
+            this.buttonEpNext.TabIndex = 27;
+            this.buttonEpNext.Text = ">";
+            this.buttonEpNext.UseVisualStyleBackColor = true;
+            this.buttonEpNext.Click += new System.EventHandler(this.buttonEpNext_Click);
+            // 
+            // buttonEpPrev
+            // 
+            this.buttonEpPrev.Location = new System.Drawing.Point(60, 16);
+            this.buttonEpPrev.Name = "buttonEpPrev";
+            this.buttonEpPrev.Size = new System.Drawing.Size(38, 23);
+            this.buttonEpPrev.TabIndex = 26;
+            this.buttonEpPrev.Text = "<";
+            this.buttonEpPrev.UseVisualStyleBackColor = true;
+            this.buttonEpPrev.Click += new System.EventHandler(this.buttonEpPrev_Click);
+            // 
+            // buttonEpRandom
+            // 
+            this.buttonEpRandom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonEpRandom.Location = new System.Drawing.Point(352, 15);
+            this.buttonEpRandom.Name = "buttonEpRandom";
+            this.buttonEpRandom.Size = new System.Drawing.Size(75, 23);
+            this.buttonEpRandom.TabIndex = 24;
+            this.buttonEpRandom.Text = "Random";
+            this.buttonEpRandom.UseVisualStyleBackColor = true;
+            this.buttonEpRandom.Click += new System.EventHandler(this.buttonEpRandom_Click);
+            // 
+            // buttonEpFirst
+            // 
+            this.buttonEpFirst.Location = new System.Drawing.Point(16, 16);
+            this.buttonEpFirst.Name = "buttonEpFirst";
+            this.buttonEpFirst.Size = new System.Drawing.Size(38, 23);
+            this.buttonEpFirst.TabIndex = 25;
+            this.buttonEpFirst.Text = "<<";
+            this.buttonEpFirst.UseVisualStyleBackColor = true;
+            this.buttonEpFirst.Click += new System.EventHandler(this.buttonEpFirst_Click);
+            // 
+            // labelEpNombre
+            // 
+            this.labelEpNombre.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.labelEpNombre.AutoSize = true;
+            this.labelEpNombre.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelEpNombre.Location = new System.Drawing.Point(60, 66);
+            this.labelEpNombre.Name = "labelEpNombre";
+            this.labelEpNombre.Size = new System.Drawing.Size(81, 25);
+            this.labelEpNombre.TabIndex = 21;
+            this.labelEpNombre.Text = "Nombre";
             // 
             // AppWindow
             // 
@@ -507,6 +675,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPers)).EndInit();
             this.tabPageLugares.ResumeLayout(false);
             this.tabPageLugares.PerformLayout();
+            this.tabPageEpisodios.ResumeLayout(false);
+            this.tabPageEpisodios.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -550,5 +720,18 @@
 		private Button buttonLocRandom;
 		private Button buttonLocFirst;
 		private Label labelLocNombre;
+		private Label labelEpCode;
+		private Label labelEpChars;
+		private Label labelEpAirDate;
+		private Label label_EpCode;
+		private Label label_EpChars;
+		private Label label_EpAirDate;
+		private TextBox textBoxEpID;
+		private Button buttonEpLast;
+		private Button buttonEpNext;
+		private Button buttonEpPrev;
+		private Button buttonEpRandom;
+		private Button buttonEpFirst;
+		private Label labelEpNombre;
 	}
 }

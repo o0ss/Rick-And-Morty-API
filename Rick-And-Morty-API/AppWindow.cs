@@ -6,18 +6,21 @@ namespace Rick_And_Morty_API
 	public partial class AppWindow : Form
 	{
 		private int last_id_pers = Personaje.MIN_ID, id_pers = 0,
-					last_id_loc = Lugar.MIN_ID, id_loc = 0;
-					/*last_id_ep = Episodio.MIN_ID, id_ep = 0;*/
+					last_id_loc = Lugar.MIN_ID, id_loc = 0,
+					last_id_ep = Episodio.MIN_ID, id_ep = 0;
 		private RickMortyAPI api;
 		private Random random;
 		Dictionary<int, Personaje> dicc_personajes;
 		Dictionary<int, Lugar> dicc_lugares;
+		Dictionary<int, Episodio> dicc_episodios;
+
 		public AppWindow()
 		{
 			InitializeComponent();
 			random = new Random();
 			dicc_personajes = new Dictionary<int, Personaje>();
 			dicc_lugares = new Dictionary<int, Lugar>();
+			dicc_episodios = new Dictionary<int, Episodio>();
 			api = new RickMortyAPI();
 		}
 
@@ -102,9 +105,47 @@ namespace Rick_And_Morty_API
 				global::System.Console.WriteLine(e.ToString());
 				throw;
 			}
-
 		}
 
+		public async Task<bool> updateEpisodio(int nuevo)
+		{
+			try
+			{
+				if (nuevo != id_ep &&
+					Lugar.MIN_ID <= nuevo && nuevo <= Lugar.MAX_ID)
+				{
+					last_id_ep = id_ep;
+					id_ep = nuevo;
+					if (!dicc_episodios.ContainsKey(nuevo))
+					{
+						Episodio ep_nuevo = await
+							api.ObtenEpisodio(nuevo);
+						if (!dicc_episodios.ContainsKey(nuevo))
+							dicc_episodios.Add(nuevo, ep_nuevo);
+					}
+
+					Episodio ep = dicc_episodios[nuevo];
+
+					labelEpNombre.Text = ep.name;
+					labelEpAirDate.Text = ep.air_date;
+					labelEpCode.Text = ep.episode;
+					labelEpChars.Text = ep.characters.Length.ToString();
+
+					if (textBoxEpID.Text != id_ep.ToString())
+					{
+						textBoxEpID.Text = id_ep.ToString();
+					}
+					return true;
+				}
+				return false;
+			}
+			catch (Exception e)
+			{
+				global::System.Console.WriteLine(e.ToString());
+				throw;
+			}
+
+		}
 		private async void buttonFirstPers_Click(object sender, EventArgs e)
 		{
 			await updatePersonaje(Personaje.MIN_ID);
@@ -144,6 +185,84 @@ namespace Rick_And_Morty_API
 					await updateLugar(nuevo);
 				}
 			}
+		}
+
+		private async void buttonLocFirst_Click(object sender, EventArgs e)
+		{
+			await updateLugar(Lugar.MIN_ID);
+		}
+
+		private async void buttonLocPrev_Click(object sender, EventArgs e)
+		{
+			if (id_loc > Lugar.MIN_ID)
+			{
+				await updateLugar(id_loc - 1);
+			}
+		}
+
+		private async void buttonLocNext_Click(object sender, EventArgs e)
+		{
+			if (id_loc < Lugar.MAX_ID)
+				await updateLugar(id_loc + 1);
+		}
+
+		private async void textBoxEpID_TextChanged(object sender, EventArgs e)
+		{
+			if (!int.TryParse(textBoxEpID.Text, out int nuevo) || nuevo < Episodio.MIN_ID)
+			{
+				textBoxEpID.Text = "";
+			}
+			else
+			{
+				if (nuevo > Episodio.MAX_ID)
+				{
+					textBoxEpID.Text = id_ep.ToString();
+				}
+				else
+				{
+					await updateLugar(nuevo);
+				}
+			}
+		}
+
+		private async void buttonEpFirst_Click(object sender, EventArgs e)
+		{
+			await updateEpisodio(Episodio.MIN_ID);
+		}
+
+		private async void buttonEpPrev_Click(object sender, EventArgs e)
+		{
+			if(id_ep > Episodio.MIN_ID)
+				await updateEpisodio(id_ep - 1);
+		}
+
+		private async void buttonEpNext_Click(object sender, EventArgs e)
+		{
+			if(id_ep < Episodio.MAX_ID)
+				await updateEpisodio(id_ep + 1);
+
+		}
+
+		private async void buttonEpLast_Click(object sender, EventArgs e)
+		{
+			await updateEpisodio(Episodio.MAX_ID);
+		}
+
+		private async void buttonEpRandom_Click(object sender, EventArgs e)
+		{
+			int rand = random.Next(Episodio.MIN_ID, Episodio.MAX_ID + 1);
+			await updateEpisodio(rand);
+		}
+
+		private async void buttonLocLast_Click(object sender, EventArgs e)
+		{
+			await updateLugar(Lugar.MAX_ID);
+		}
+
+		private async void buttonLocRandom_Click(object sender, EventArgs e)
+		{
+			int rand = random.Next(Lugar.MIN_ID, Lugar.MAX_ID+1);
+			await updateLugar(rand);
 		}
 
 		private async void textBoxIDPers_TextChanged(object sender, EventArgs e)
